@@ -58,13 +58,16 @@ app.get('/home', (req, res) => {
 
 })
 
-//shows items bought and sold by user
-app.get('/userActivity')
+//shows items sold by user
+app.get('/getItemsSold')
 //TODO: integrate this with the items sold
 // app.get('/itemsBought', (req, res) => {
 //     let uid = req.query.uid;
 //     res.send(JSON.stringify(alibay.getItemsBought(uid)));
 // });
+
+//get items bought by user
+app.get('/getItemsBought')
 
 //show all items to user
 app.get('/allItems')

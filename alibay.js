@@ -2,17 +2,22 @@ const assert = require('assert');
 
 let itemsBought = {} // map that keeps track of all the items a user has bought
 
+let itemsSold = {}
+
+let items = {}
+
 /*
 Before implementing the login functionality, use this function to generate a new UID every time.
-*/
-function genUID() {
-    return Math.floor(Math.random() * 100000000)
-}
-
+*/ 
+//no longer needed, login instead
+// function genUID() {
+//     return Math.floor(Math.random() * 100000000)
+// }
+//user id connected to an array of item ids
 function putItemsBought(userID, value) {
     itemsBought[userID] = value;
 }
-
+//shows items that that user has bought
 function getItemsBought(userID) {
     return itemsBought[userID];
 }
@@ -23,8 +28,9 @@ initializeUserIfNeeded adds the UID to our database unless it's already there
 parameter: [uid] the UID of the user.
 returns: undefined
 */
+//if buyer never bought anything assigns empty array
 function initializeUserIfNeeded(uid) {
-    var items = getItemsBought[uid];
+    var items = getItemsBought(uid);
     if(items == undefined) {
         putItemsBought(uid, []);
     }
@@ -34,10 +40,10 @@ function initializeUserIfNeeded(uid) {
 allItemsBought returns the IDs of all the items bought by a buyer
     parameter: [buyerID] The ID of the buyer
     returns: an array of listing IDs
-*/
-function allItemsBought(buyerID) {
-    return itemsBought[buyerID];    
-}
+*///seee get getItemsBought
+// function allItemsBought(buyerID) {
+//     return itemsBought[buyerID];    
+// }
 
 /* 
 createListing adds a new listing to our global state.
@@ -57,7 +63,7 @@ getItemDescription returns the description of a listing
     parameter: [listingID] The ID of the listing
     returns: An object containing the price and blurb properties.
 */
-function getItemDescription(listingID) {
+function getItemDescription() {
     
 }
 
@@ -82,7 +88,7 @@ function buy(buyerID, sellerID, listingID) {
 allItemsSold returns the IDs of all the items sold by a seller
     parameter: [sellerID] The ID of the seller
     returns: an array of listing IDs
-*/
+*///needs items sold map userid & itemid
 function allItemsSold(sellerID) {
     
 }
@@ -91,7 +97,7 @@ function allItemsSold(sellerID) {
 allListings returns the IDs of all the listings currently on the market
 Once an item is sold, it will not be returned by allListings
     returns: an array of listing IDs
-*/
+*///array of listing Ids
 function allListings() {
     
 }
